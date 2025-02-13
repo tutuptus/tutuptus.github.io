@@ -1,8 +1,137 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Dla mojej ukochanej</title>
+    <meta charset="utf-8">
+    <style>
+      body{
+        background-color: #b0147c;
+        text-align: center;
+        margin-top: 20%;
+      }
+      button {
+        height:60px;
+        width:110px;
+      }
+      #dodatek{
+        position: absolute;
+        bottom: 0px;
+      }
+      #tak1{
+        background-color: #4CAF50;
+        padding: 10px 20px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      #tak1:hover{
+        border-color: #3a873d;
+      }
+      #tak1:active{
+        background-color: #45a049;
+      }
+      #nie1{
+        background-color: #c81a1a;
+        padding: 10px 20px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        font-size: 10px;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      #nie1:hover{
+        border-color: #981414;
+      }
+      #nie1:active{
+        background-color: #a51414;
+      }
+    </style>
   </head>
   <body>
-	siema
+    <h1 id=dozmiany>Zostaniesz moją walentynką?</h1>
+    <div id=przyciski1>
+      <button type=button id="nie1" onclick="niezgoda1()">nie :(</button>
+      <button type=button id="tak1" onclick="zgoda1()">TAK :)</button>
+      <p id=dodatek>to zajeło troche dłużej niż zakładałem i jest tego więcej niż myślałem że będzie, mam nadzieje że się cieszysz ~Jakub Serafin dla swojej ukochanej oby przyszłej żony</p>
+      <p id="p"></p>
+      <p id="p2"></p>
+    </div>
+    <script>
+      var a = document.getElementById("tak1")
+      var b = document.getElementById("nie1")
+      var c = document.getElementById("dozmiany")
+      var d = document.getElementById("p")
+      var e = document.getElementById("p2")
+      function zgoda1() {
+          a.style.fontSize = "14px";
+          b.style.fontSize = "14px";
+          c.innerText = "Jesteś tego pewna?";
+          b.innerText = "nuh uh";
+          a.innerText = "TAK, głupi";
+          a.onclick = zgoda2;
+          b.onclick = niezgoda2;
+      }
+      function niezgoda1() {
+        c.innerText = "poważnie? tak szybko sobie odpuszczasz? szukaj dalej  innego zakończenia";
+        d.innerText = "zakończenie zawód: troche szybko to ''nie'' zostało kliknięte :("
+        b.remove();
+        a.remove();
+      }
+      function niezgoda2() {
+        a.style.fontSize = "14px";
+        b.style.fontSize = "14px";
+        b.innerText = "----->";
+        a.innerText = "TAK";
+        c.innerText = "Miałaś być pewna, źle odpowiedziałaś, jeszcze raz";
+        b.onclick = "zgoda2";
+      }
+      function zgoda2() {
+        a.style.fontSize = "16px";
+        b.style.fontSize = "16px";
+        c.innerText = "Sory, dalej ci nie wierze";
+        b.innerText = "nie";
+        a.innerText = "tak";
+        a.onclick = zgoda3;
+        b.onclick = niezgoda3;
+      }
+      function niezgoda3() {
+        
+      }
+      function zgoda3() {
+        a.style.fontSize = "16px";
+        b.style.fontSize = "16px";
+        c.innerText = "Jeszcze raz kliknij bo jakoś coś nie tak";
+        b.innerText = "tak";
+        b.style.backgroundColor = "#4CAF50";
+        a.innerText = "tak";
+        b.onclick = final2;
+        a.onclick = final;
+      }
+      function final2() {
+        c.innerText = "Poważnie kliknełaś lewy przycisk który był słowem ''nie'' wcześniej? Nie miło";
+        b.remove();
+        a.remove();
+        d.innerText = "złe zakończenie: tyle razy się zgodziłąś i zaryzykowałaś z drugim przyciskiem nie łądnie (prosze zagraj jeszcze raz)";
+      }
+      function final() {
+	document.body.style.marginTop = "0px";
+        c.innerText = "Dziękuje, wiem że czasem myśle, robie i mówie okropne rzeczy ale kiedy nie myśle o tym wszystkim co robie źle to jest tak jak lepiej być nie mogło, jestem wdzięczny że cię spotkałem i poznałem nie zależnie od tego co powiem to, to uczucie wdzięczności zawsze będzie w moim sercu i duszy";
+        b.remove();
+        a.remove();
+        var img = document.createElement("img");
+        img.src = "https://pngimg.com/d/rose_PNG66771.png";
+        img.style.height = "500px";
+        d.appendChild(img);
+        e.innerText += "najlepsze zakończenie: wszystko jest tak dobrze jak tylko może być i nie ma nigdie żadnych zmartwień"
+      }
+    </script>
   </body>
 </html>
